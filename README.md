@@ -1,14 +1,13 @@
-# Finance Manager
+# Blog Pessoal
 
-Aplicativo para gestão de finanças criado juntamento com a turma Itacorubi do projeto LAB365.
+A aplicação é um Blog criado do zero, faz parte dos exercícios semanais do projeto LAB365.
 
-## Features da semana
+## Features 
 
-- Adicionar despesas individuais
-- Utilizar classes e objetos para melhorar a legibilidade do código
-- Criação de página de despesas em grupo
-- Botão para adicionar despesa em grupo
-- Visualizar despesas em grupo
+- Obter e mostrar os posts no blog
+- Botão para carregar mais posts e mostrar em tela
+- Criação de modal para mostrar os detalhes e comentários do post
+
 
 ## Tecnologias
 
