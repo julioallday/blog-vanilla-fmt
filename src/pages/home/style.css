@@ -8,9 +8,26 @@
     /* color: #F5EFE1; */
     font-family: 'Oswald', sans-serif;
 }
+
 .blog-post{
+    max-width: 800px;
     border: 1px solid rgb(6, 3, 3);
     border-radius: 4px;
-    margin: 8px;
+    margin: 8px auto;
     padding: 4px 8px;
+}
+section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+button{
+    margin: 8px;
+    
+}
+.show{
+    display: flex;
+}
+.hide{
+    display: none;
 }
