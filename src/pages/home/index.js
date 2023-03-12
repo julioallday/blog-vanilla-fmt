@@ -1,30 +1,43 @@
-const fetchPosts = async (postPage, postLimit = 20) =>
-  await fetch(
-    `https://jsonplaceholder.typicode.com/posts?_page=${postPage}&_limit=${postLimit}`
-  ).then((res) => res.json());
+import { openModalListener } from "../../components/modal.js";
+import { postsService } from "../../services/postServices.js";
 
-const listarPosts = async () => {
-  let postPage = 1;
+let postPage = 1;
+let currentPost = [];
+window.currentPost = currentPost;
+
+const listPosts = async () => {
   const main = document.getElementById("posts");
-  const posts = await fetchPosts(postPage);
-  posts.forEach((element, index, array) => {
+  const posts = await postsService(postPage);
+
+  posts.forEach(async (element) => {
     const post = document.createElement("div");
     post.setAttribute("class", "blog-post");
     main.appendChild(post);
+    post.id = `post-${element.id}`;
+
     post.innerHTML = `
-    <a id="post-${element.id}">
         <h4>${element.title}</h4>
         <p>${element.body}</p>
-    </a>`;
-    let button = document.getElementById("fetch-posts");
-    if (array.length < 20) {
-      button.classList.remove("show");
-      button.classList.add("hide");
-    } else {
-      button.classList.remove("hide");
-      button.classList.add("show");
-    }
+    `;
+
+    openModalListener(element);
   });
+  postPage++;
+
+  let button = document.getElementById("fetch-posts");
+  if (posts.length < 20) {
+    button.style.display = "none";
+  } else {
+    button.style.display = "flex";
+  }
 };
-listarPosts();
+
+let button = document.getElementById("fetch-posts");
+button.addEventListener("click", () => {
+  listPosts();
+});
+
+
+
+listPosts();
 
